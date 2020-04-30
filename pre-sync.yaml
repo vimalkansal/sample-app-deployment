@@ -3,11 +3,13 @@ kind: Job
 metadata:
   name: before
   annotations:
-argocd.argoproj.io/hook: PreSync spec:
-template:
+    argocd.argoproj.io/hook: PreSync 
 spec:
- containers:
-- name: sleep
-image: alpine:latest
-command: ["echo", "pre-sync"] restartPolicy: Never
-backoffLimit: 0
+  template:
+    spec:
+      containers:
+      - name: sleep
+        image: alpine:latest
+        command: ["echo", "pre-sync"] 
+      restartPolicy: Never
+   backoffLimit: 0
